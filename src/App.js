@@ -1,7 +1,8 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 
 //Import the useState hook in from react
   //useState is a new react hook that will allow us to have a state within a functional component
+  //useEffect is a new react hook that will allow us to have 'lifecycle methods' on our functional component
 
 
 const App = () => {
@@ -10,6 +11,14 @@ const App = () => {
     //the second is a function that will update state
     //we pass in 0 to useState to define that count will be defaulted to 0
   const [count, setCount] = useState(0);
+
+  //this is a new react hook to use side effects (lifecycle methods)
+    //useEffect will take in a function as an argument
+    //useEffect will execute any time there is a change in state
+  useEffect(() => {
+    document.title = `Clicked ${count} times`;
+  });
+
 
   //this is the method to increment count on state
   const increment = () => {
